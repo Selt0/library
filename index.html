@@ -9,44 +9,38 @@
     <link rel="manifest" href="favicon_io/site.webmanifest" />
     <link rel="stylesheet" href="css/font/flaticon.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Itim&family=Open+Sans+Condensed:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Itim&family=Lato:wght@300;400&family=Open+Sans+Condensed:wght@300&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Library</title>
+    <title>My Library</title>
   </head>
   <body>
     <div id="container">
-      <nav id="sidebar">
-        <ul>
-          <li id="profile-pic">
-            <a href=""
-              ><img
-                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
-                alt="no image"
-            /></a>
-          </li>
-          <li id="profile-name">
-            <a href=""><h2>John Doe</h2></a>
-          </li>
+      <div id="sidebar">
+        <nav id="sidebar-items">
+          <a id="profile-pic" href=""
+            ><img src="https://angelofshiva.com/resources/assets/images/no-img.jpg" alt="no image"
+          /></a>
+          <a id="profile-name" href="">John Doe</a>
           <hr />
-          <li><a href="">My Library</a></li>
-          <li><a href="">My Wishlist</a></li>
-          <li><a href="">Recommendations</a></li>
-          <li><a href="">New Realeases</a></li>
-          <li><a href="">Trending</a></li>
-          <li><a href="">Best Sellers</a></li>
-          <hr />
-          <li><a href="">Graphic Novels & Comics</a></li>
-          <li><a href="">Biography</a></li>
-          <li><a href="">Cookbooks, Food, & Wine</a></li>
-          <li><a href="">Fiction</a></li>
-          <li><a href="">More...</a></li>
-          <hr />
-          <li><a href="">Settings</a></li>
-          <li><a href="">Logout</a></li>
-        </ul>
-      </nav>
+          <a class="sidebar-item" href="">My Library</a>
+          <a class="sidebar-item" href="">My Wishlist</a>
+          <a class="sidebar-item" href="">Recommendations</a>
+          <a class="sidebar-item" href="">New Realeases</a>
+          <a class="sidebar-item" href="">Trending</a>
+          <a class="sidebar-item" href="">Best Sellers</a>
+          <div class="category">
+            <a class="sidebar-item" href="">Graphic Novels & Comics</a>
+            <a class="sidebar-item" href="">Biography</a>
+            <a class="sidebar-item" href="">Cookbooks, Food, & Wine</a>
+            <a class="sidebar-item" href="">Fiction</a>
+            <a class="sidebar-item" href="">More...</a>
+          </div>
+          <a class="sidebar-item" href="">Settings</a>
+          <a class="sidebar-item" href="">Logout</a>
+        </nav>
+      </div>
       <div id="app-container">
         <header>
           <div class="header">
@@ -78,8 +72,8 @@
               />
             </div>
             <div class="content">
-              <h2 class="book-title">Book Title</h2>
-              <h3 class="book-author">Author Name</h3>
+              <h2 class="book-title">Ridiculously long title name</h2>
+              <h3 class="book-author">Ridiculously long Author Name</h3>
             </div>
           </div>
 
