@@ -3,19 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
+    <link rel="manifest" href="favicon_io/site.webmanifest" />
+    <link rel="stylesheet" href="css/font/flaticon.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Itim&family=Open+Sans+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Library</title>
   </head>
   <body>
-    <header>
-      <nav>
+    <div id="container">
+      <nav id="sidebar">
         <ul>
-          <li>
-            <a href=""><img src="" alt="" /></a>
+          <li id="profile-pic">
+            <a href=""
+              ><img
+                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
+                alt="no image"
+            /></a>
           </li>
-          <li><a href="">John Doe</a></li>
+          <li id="profile-name">
+            <a href=""><h2>John Doe</h2></a>
+          </li>
+          <hr />
           <li><a href="">My Library</a></li>
           <li><a href="">My Wishlist</a></li>
-          <hr />
           <li><a href="">Recommendations</a></li>
           <li><a href="">New Realeases</a></li>
           <li><a href="">Trending</a></li>
@@ -31,40 +47,108 @@
           <li><a href="">Logout</a></li>
         </ul>
       </nav>
-    </header>
-    <section>
-      <h1>My Library</h1>
-      <div>
-        <form action="">
-          <input type="text" placeholder="Search" />
-        </form>
-        <div>heart/favorites</div>
-        <div>grid images</div>
-        <div>card-grid</div>
+      <div id="app-container">
+        <header>
+          <div class="header">
+            <img class="logo" src="css/font/svg/004-read.svg" alt="reader icon" />
+            <h1>My Library</h1>
+          </div>
+          <div class="header-items">
+            <div class="search">
+              <input type="text" placeholder="Search" />
+              <i class="flaticon-loupe"></i>
+            </div>
+            <div class="icon">
+              <a href=""><img src="css/font/svg/001-like.svg" alt="heart icon" /></a>
+            </div>
+            <div class="icon">
+              <a href="#"
+                ><img src="css/font/svg/003-shopping-cart.svg" alt="shopping cart icon"
+              /></a>
+            </div>
+          </div>
+        </header>
+        <section class="book-cards">
+          <div class="card add-item"><i class="flaticon-add"></i></div>
+          <div class="card">
+            <div class="book-cover">
+              <img
+                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
+                alt="no image"
+              />
+            </div>
+            <div class="content">
+              <h2 class="book-title">Book Title</h2>
+              <h3 class="book-author">Author Name</h3>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="book-cover">
+              <img
+                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
+                alt="no image"
+              />
+            </div>
+            <h2 class="book-title">Book Title</h2>
+            <h3 class="book-author">Author Name</h3>
+          </div>
+
+          <div class="card">
+            <div class="book-cover">
+              <img
+                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
+                alt="no image"
+              />
+            </div>
+            <h2 class="book-title">Book Title</h2>
+            <h3 class="book-author">Author Name</h3>
+          </div>
+
+          <div class="card">
+            <div class="book-cover">
+              <img
+                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
+                alt="no image"
+              />
+            </div>
+            <h2 class="book-title">Book Title</h2>
+            <h3 class="book-author">Author Name</h3>
+          </div>
+
+          <div class="card">
+            <div class="book-cover">
+              <img
+                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
+                alt="no image"
+              />
+            </div>
+            <h2 class="book-title">Book Title</h2>
+            <h3 class="book-author">Author Name</h3>
+          </div>
+          <div class="card">
+            <div class="book-cover">
+              <img
+                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
+                alt="no image"
+              />
+            </div>
+            <h2 class="book-title">Book Title</h2>
+            <h3 class="book-author">Author Name</h3>
+          </div>
+          <div class="card">
+            <div class="book-cover">
+              <img
+                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
+                alt="no image"
+              />
+            </div>
+            <h2 class="book-title">Book Title</h2>
+            <h3 class="book-author">Author Name</h3>
+          </div>
+        </section>
       </div>
-    </section>
-    <section>
-      <div>
-        <div>
-          <img src="" alt="" />
-        </div>
-        <h2>Book Title</h2>
-        <h3>Author Name</h3>
-      </div>
-      <div>
-        <div>
-          <img src="" alt="" />
-        </div>
-        <h2>Book Title</h2>
-        <h3>Author Name</h3>
-      </div>
-      <div>
-        <div>
-          <img src="" alt="" />
-        </div>
-        <h2>Book Title</h2>
-        <h3>Author Name</h3>
-      </div>
-    </section>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>

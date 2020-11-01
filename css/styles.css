@@ -1,0 +1,144 @@
+/* GENERAL */
+
+:root {
+  --light-box: 1px solid rgba(175, 173, 173, 0.3);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 3em;
+}
+img {
+  width: 100%;
+}
+
+hr {
+  margin: 10px auto;
+}
+
+input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+#container {
+  display: flex;
+}
+
+/* SIDEBAR */
+#sidebar {
+  flex: 0 0 auto;
+  width: 200px;
+}
+#sidebar ul {
+  margin: 0;
+  padding-left: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  border-right: var(--light-box);
+}
+
+#sidebar li {
+  list-style-type: none;
+  padding: 10px;
+}
+
+#sidebar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#profile-pic {
+  max-width: 100px;
+  margin: 0 auto;
+}
+#profile-pic img {
+  border-radius: 5em;
+}
+
+#profile-name {
+  text-align: center;
+}
+
+/* APP CONTAINER */
+#app-container {
+  flex: 1 1 auto;
+}
+/* HEADER */
+
+.header-items {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  margin-left: 30px;
+  width: 50px;
+  height: 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 {
+  display: inline-block;
+  margin-left: 1rem;
+}
+.search {
+  border: var(--light-box);
+  padding: 10px;
+}
+
+.icon {
+  padding: 10px;
+  border: var(--light-box);
+  margin-left: 15px;
+  width: 25px;
+  height: 25px;
+}
+
+/* BOOKS */
+
+.book-cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 3em;
+  padding-right: 5em;
+}
+
+.card {
+  width: calc(20% - 1.5em);
+  margin: 1em 0.75em;
+}
+
+.card:hover > .book-cover,
+.add-item:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+  transition: all 0.1s ease;
+}
+
+.add-item {
+  align-self: center;
+  text-align: center;
+  opacity: 0.25;
+}
+
+.add-item:hover {
+  opacity: 1;
+}
+
+.book-cover {
+  border: var(--light-box);
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.book-title,
+.book-author {
+  margin: 0;
+}
