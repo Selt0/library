@@ -5,11 +5,17 @@
 }
 
 header {
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   padding-left: 1em;
-  padding-right: 3em;
+  border-bottom: var(--light-box);
+  width: 80%;
+  background-color: #fff;
+  z-index: 2;
 }
+
 img {
   width: 100%;
 }
@@ -31,11 +37,12 @@ input {
 
 /* SIDEBAR */
 #sidebar {
+  box-sizing: border-box;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 1rem;
   width: 200px;
   flex: 0 0 auto;
-  height: 100vh;
+  height: 95vh;
   border-right: var(--light-box);
 }
 
@@ -48,7 +55,7 @@ input {
   position: fixed;
   top: 0;
   left: 0;
-  height: 90vh;
+  height: 90%;
   width: 180px;
 }
 
@@ -95,11 +102,13 @@ input {
 .category a {
   opacity: 0.5;
 }
+
 /* APP CONTAINER */
 #app-container {
   flex: 1 1 auto;
   font-family: 'Itim', cursive;
 }
+
 /* HEADER */
 
 .header-items {
@@ -141,6 +150,7 @@ input {
   font-family: 'Lato', sans-serif;
   padding-left: 3em;
   padding-right: 5em;
+  padding-top: 5em;
 }
 
 .card {
@@ -233,4 +243,38 @@ input {
 .book-author {
   font-weight: 300;
   font-size: 14px;
+}
+
+/* POP UP FORM */
+
+.overlay {
+  position: fixed;
+
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.form-content {
+  position: relative;
+  border: 1px solid #bebebe;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.75);
+  border-radius: 1em;
+  top: 25%;
+  margin: 0 auto;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  text-align: center;
+  z-index: 10;
+  cursor: initial;
 }

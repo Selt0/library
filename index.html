@@ -113,6 +113,44 @@
             <h3 class="book-author">Author Name</h3>
           </div>
         </section>
+
+        <div class="overlay">
+          <section class="form-content">
+            <h2>Add a new Book</h2>
+            <label for="url"
+              >Cover:
+              <input
+                type="url"
+                id="url"
+                placeholder="https://www.chrismoore.com/wp-content/uploads/2013/08/LB_us_paperback2.jpg"
+              />
+            </label>
+            <label for="author"
+              >Author: <input type="text" id="author" placeholder="Chistopher Moore" required
+            /></label>
+            <label for="title"
+              >Title:
+              <input
+                type="text"
+                id="title"
+                placeholder="
+Lamb: The Gospel According to Biff, Christ's Childhood Pal"
+                required
+              />
+            </label>
+            <label for="pages"
+              >Number of pages:
+              <input type="number" id="pages" value="464" min="0" required />
+            </label>
+            <label for="haveRead">
+              Finished the book?
+              <input type="checkbox" name="haveRead" id="haveRead" />
+            </label>
+
+            <button>Cancel</button>
+            <button>Submit</button>
+          </section>
+        </div>
       </div>
     </div>
     <script src="main.js"></script>
