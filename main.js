@@ -1,6 +1,7 @@
 const bookSection = document.querySelector('.book-cards');
 const add_item = document.querySelector('.add-item');
 const overlay = document.querySelector('.overlay');
+const formSection = document.querySelector('.form-content');
 const bookForm = document.querySelector('.bookForm');
 const submitBtn = document.querySelector('#submit');
 const cancelBtn = document.querySelector('#cancel');
@@ -44,6 +45,8 @@ FORM FUNCTIONS
 function openBookForm() {
   // bring up overlay
   overlay.style.display = 'block';
+  formSection.classList.add('animate__fadeInDown');
+  formSection.classList.remove('animate__bounceOutDown');
   listenForOverlay();
 }
 
@@ -57,7 +60,11 @@ function clearForm() {
 }
 
 function closeForm() {
-  overlay.style.display = 'none';
+  setTimeout(() => {
+    overlay.style.display = 'none';
+  }, 700);
+  formSection.classList.remove('animate__fadeInDown');
+  formSection.classList.add('animate__bounceOutDown');
   bookForm.reset();
 }
 
