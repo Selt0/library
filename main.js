@@ -12,18 +12,15 @@ let bookAuthor = document.querySelector('#author');
 let bookPages = document.querySelector('#pages');
 let haveRead = document.querySelector('#haveRead');
 
-let myLibrary = [
-  {
-    title: "Lamb: The Gospel According to Biff, Christ's Childhood Pal",
-    author: 'Chistopher Moore',
-    pages: '464',
-    haveRead: false,
-    cover: 'https://www.chrismoore.com/wp-content/uploads/2013/08/LB_us_paperback2.jpg',
-  },
-];
+let myLibrary = [];
 
-// when page loads, display library
 window.onload = displayBooks;
+
+/*
+===================
+WEBSITE INTERACTION
+===================
+*/
 
 // if user presses '+', open form
 add_item.addEventListener('click', openBookForm);
@@ -37,6 +34,12 @@ submitBtn.addEventListener('click', () => {
     closeForm();
   }
 });
+
+/*
+===================
+FORM FUNCTIONS
+===================
+*/
 
 function openBookForm() {
   // bring up overlay
@@ -65,34 +68,46 @@ function listenForOverlay() {
   });
 }
 
-// BOOK CONSTRUCTOR AND FUNCTIONS
+/*
+===================
+BOOK CONSTRUCTOR AND FUNCTIONS
+===================
+*/
 
-function Book(title, author, pages, haveRead, cover) {
+function Book(id, title, author, pages, haveRead, cover) {
+  this.id = id;
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.haveRead = haveRead;
   this.cover = cover || 'https://angelofshiva.com/resources/assets/images/no-img.jpg';
-
-  this.changeStatus = function () {
-    this.haveRead = this.haveRead ? false : true;
-  };
 }
 
 function displayBooks() {
-  if (!myLibrary.length) return;
-
-  myLibrary.forEach(loadBook);
+  if (!localStorage.getItem('myLibrary')) {
+    populateStorage();
+  } else {
+    myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+    myLibrary.forEach(loadBook);
+  }
 }
 
 function loadBook(book) {
-  const libraryBook = new Book(book.title, book.author, book.pages, book.haveRead, book.cover);
+  const libraryBook = new Book(
+    book.id,
+    book.title,
+    book.author,
+    book.pages,
+    book.haveRead,
+    book.cover
+  );
 
   displayBook(libraryBook);
 }
 
 function createNewBook() {
   const newBook = new Book(
+    myLibrary.length,
     bookTitle.value,
     bookAuthor.value,
     bookPages.value,
@@ -105,12 +120,18 @@ function createNewBook() {
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
+  updateStorage(myLibrary);
   displayBook(book);
+}
+
+function changeBookStatus(book) {
+  book.haveRead = book.haveRead ? false : true;
 }
 
 function displayBook(book) {
   // create a div with class of card
   const card = document.createElement('div');
+  card.setAttribute('id', book.id);
   card.classList.add('card');
 
   // inside 'card', create a nested div with a class of img-box
@@ -129,7 +150,7 @@ function displayBook(book) {
   cardButtons.classList.add('card-buttons');
   imgBox.appendChild(cardButtons);
 
-  // inside 'card-buttons', create an img with class of icon and remove with src of remove icon
+  // inside 'card-buttons', create an img with class of icon and remove
   const removeIcon = document.createElement('img');
   removeIcon.classList.add('icon', 'remove');
   removeIcon.src = 'css/font/svg/008-remove.svg';
@@ -137,9 +158,8 @@ function displayBook(book) {
 
   // remove book when user clicks removeIcon
   removeIcon.addEventListener('click', () => {
-    const index = myLibrary.indexOf(book);
-    myLibrary.splice(index, 1);
-
+    myLibrary = myLibrary.filter((b) => b.id != book.id);
+    updateStorage(myLibrary);
     card.remove();
   });
 
@@ -147,13 +167,13 @@ function displayBook(book) {
   const readIcon = document.createElement('div');
   let status = book.haveRead ? 'completed' : 'reading';
   readIcon.classList.add('icon', status);
-  // add event listener to icon
 
   // change status of book when user clicks readIcon
   readIcon.addEventListener('click', () => {
-    book.changeStatus();
+    changeBookStatus(myLibrary[book.id]);
     readIcon.classList.toggle('completed');
     readIcon.classList.toggle('reading');
+    updateStorage(myLibrary);
   });
 
   cardButtons.appendChild(readIcon);
@@ -172,4 +192,58 @@ function displayBook(book) {
 
   //append card to section with class book-cards
   bookSection.appendChild(card);
+}
+
+// LOCAL STORAGE
+
+// test for local storage
+function storageAvailable(type) {
+  let storage;
+  try {
+    storage = window[type];
+    const x = '__storage_test__';
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  } catch (e) {
+    return (
+      e instanceof DOMException &&
+      // everything except Firefox
+      (e.code === 22 ||
+        // Firefox
+        e.code === 1014 ||
+        // test name field too, because code might not be present
+        // everything except Firefox
+        e.name === 'QuotaExceededError' ||
+        // Firefox
+        e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+      // acknowledge QuotaExceededError only if there's something already stored
+      storage &&
+      storage.length !== 0
+    );
+  }
+}
+
+if (storageAvailable('localStorage')) {
+  console.log('connected');
+} else {
+  console.log('no storage available');
+}
+
+function populateStorage() {
+  const newUserBook = new Book(
+    0,
+    "Lamb: The Gospel According to Biff, Christ's Childhood Pal",
+    'Chistopher Moore',
+    464,
+    false,
+    'https://www.chrismoore.com/wp-content/uploads/2013/08/LB_us_paperback2.jpg'
+  );
+
+  addBookToLibrary(newUserBook);
+}
+
+function updateStorage(library) {
+  localStorage.clear();
+  localStorage.setItem('myLibrary', JSON.stringify(library));
 }
