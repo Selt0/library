@@ -6,9 +6,9 @@
 
 Application was made to practice using constructor, DOM, and LocalStorage
 
-I wanted to test myself and build it without using any frameworks, such as bootstrap. [^1]
+I wanted to test myself and build it without using any frameworks, such as bootstrap.
 
-[^1]: <sup>_I did use a css animation library though_<sup>
+<sub>_I did use a css animation library though_<sub>
 
 ## [Live demo](https://selt0.github.io/library/)
 
