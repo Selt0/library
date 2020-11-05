@@ -12,6 +12,10 @@
       href="https://fonts.googleapis.com/css2?family=Itim&family=Lato:wght@300;400&family=Open+Sans+Condensed:wght@300&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="css/styles.css" />
     <title>My Library</title>
   </head>
@@ -64,91 +68,47 @@
         </header>
         <section class="book-cards">
           <div class="card add-item"><i class="flaticon-add"></i></div>
-          <div class="card">
-            <div class="img-box">
-              <img
-                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
-                alt="no image"
-              />
-              <div class="card-buttons">
-                <img class="icon remove" src="css/font/svg/008-remove.svg" alt="remove" />
-                <div class="icon reading"></div>
-              </div>
-            </div>
-            <div class="content">
-              <h2 class="book-title">Ridiculously long title name</h2>
-              <h3 class="book-author">Ridiculously long Author Name</h3>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="img-box">
-              <img
-                class="book-cover"
-                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
-                alt="no image"
-              />
-              <div class="card-buttons">
-                <img class="icon remove" src="css/font/svg/008-remove.svg" alt="remove" />
-                <div class="icon completed"></div>
-              </div>
-            </div>
-            <h2 class="book-title">Book Title</h2>
-            <h3 class="book-author">Author Name</h3>
-          </div>
-
-          <div class="card">
-            <div class="img-box">
-              <img
-                class="book-cover"
-                src="https://angelofshiva.com/resources/assets/images/no-img.jpg"
-                alt="no image"
-              />
-              <div class="card-buttons">
-                <img class="icon remove" src="css/font/svg/008-remove.svg" alt="remove" />
-                <div class="icon reading"></div>
-              </div>
-            </div>
-            <h2 class="book-title">Book Title</h2>
-            <h3 class="book-author">Author Name</h3>
-          </div>
         </section>
 
         <div class="overlay">
-          <section class="form-content">
+          <section class="form-content animate__animated animate__fadeInDown">
             <h2>Add a new Book</h2>
-            <label for="url"
-              >Cover:
-              <input
-                type="url"
-                id="url"
-                placeholder="https://www.chrismoore.com/wp-content/uploads/2013/08/LB_us_paperback2.jpg"
-              />
-            </label>
-            <label for="author"
-              >Author: <input type="text" id="author" placeholder="Chistopher Moore" required
-            /></label>
-            <label for="title"
-              >Title:
-              <input
-                type="text"
-                id="title"
-                placeholder="
-Lamb: The Gospel According to Biff, Christ's Childhood Pal"
-                required
-              />
-            </label>
-            <label for="pages"
-              >Number of pages:
-              <input type="number" id="pages" value="464" min="0" required />
-            </label>
-            <label for="haveRead">
-              Finished the book?
-              <input type="checkbox" name="haveRead" id="haveRead" />
-            </label>
+            <form class="bookForm" onsubmit="return false">
+              <label for="url"
+                >Cover:
+                <input
+                  type="url"
+                  id="url"
+                  placeholder="https://www.chrismoore.com/wp-content/uploads/2013/08/LB_us_paperback2.jpg"
+                />
+              </label>
+              <label for="title"
+                >Title:
+                <input
+                  type="text"
+                  id="title"
+                  placeholder="
+  Lamb: The Gospel According to Biff, Christ's Childhood Pal"
+                  required
+                />
+              </label>
+              <label for="author"
+                >Author: <input type="text" id="author" placeholder="Chistopher Moore" required
+              /></label>
+              <label for="pages"
+                >Number of pages:
+                <input type="number" id="pages" placeholder="464" min="0" required />
+              </label>
+              <label for="haveRead">
+                Finished the book?
+                <input type="checkbox" name="haveRead" id="haveRead" />
+              </label>
 
-            <button>Cancel</button>
-            <button>Submit</button>
+              <div class="form-buttons">
+                <button id="cancel">Cancel</button>
+                <button id="submit">Submit</button>
+              </div>
+            </form>
           </section>
         </div>
       </div>
