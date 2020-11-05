@@ -27,7 +27,7 @@ WEBSITE INTERACTION
 add_item.addEventListener('click', openBookForm);
 
 // if user presses cancel, close forrm
-cancelBtn.addEventListener('click', closeForm);
+cancelBtn.addEventListener('click', closeAnimation);
 
 submitBtn.addEventListener('click', () => {
   if (validForm()) {
@@ -50,28 +50,26 @@ function openBookForm() {
   listenForOverlay();
 }
 
-function validForm() {
-  return bookTitle.value != '' && bookAuthor.value != '' && bookPages.value != '';
-}
-
-function clearForm() {
-  bookCover.value = bookAuthor.value = bookTitle.value = bookPages.value = '';
-  haveRead.checked = false;
-}
-
-function closeForm() {
+function closeAnimation() {
   setTimeout(() => {
     overlay.style.display = 'none';
   }, 700);
   formSection.classList.remove('animate__fadeInDown');
   formSection.classList.add('animate__bounceOutDown');
+}
+function validForm() {
+  return bookTitle.value != '' && bookAuthor.value != '' && bookPages.value != '';
+}
+
+function closeForm() {
+  overlay.style.display = 'none';
   bookForm.reset();
 }
 
 // if user clicks anywhere on overlay, close form
 function listenForOverlay() {
   window.addEventListener('click', (e) => {
-    if (e.target == overlay) closeForm();
+    if (e.target == overlay) closeAnimation();
   });
 }
 
