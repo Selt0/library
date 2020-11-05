@@ -27,12 +27,15 @@ WEBSITE INTERACTION
 add_item.addEventListener('click', openBookForm);
 
 // if user presses cancel, close forrm
-cancelBtn.addEventListener('click', closeAnimation);
+cancelBtn.addEventListener('click', closeFormAnimation);
 
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', (e) => {
   if (validForm()) {
+    // prevents validation triggering when reset()
+    e.preventDefault();
+
     createNewBook();
-    closeForm();
+    closeFormAnimation();
   }
 });
 
@@ -50,26 +53,23 @@ function openBookForm() {
   listenForOverlay();
 }
 
-function closeAnimation() {
+function closeFormAnimation() {
   setTimeout(() => {
     overlay.style.display = 'none';
   }, 700);
   formSection.classList.remove('animate__fadeInDown');
   formSection.classList.add('animate__bounceOutDown');
-}
-function validForm() {
-  return bookTitle.value != '' && bookAuthor.value != '' && bookPages.value != '';
+  bookForm.reset();
 }
 
-function closeForm() {
-  overlay.style.display = 'none';
-  bookForm.reset();
+function validForm() {
+  return bookTitle.value != '' && bookAuthor.value != '' && bookPages.value != '';
 }
 
 // if user clicks anywhere on overlay, close form
 function listenForOverlay() {
   window.addEventListener('click', (e) => {
-    if (e.target == overlay) closeAnimation();
+    if (e.target == overlay) closeFormAnimation();
   });
 }
 
